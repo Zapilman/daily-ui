@@ -1,0 +1,10 @@
+.post-info-ui {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.post-info-ui__desc {
+  display: flex;
+  gap: 10px;
+}

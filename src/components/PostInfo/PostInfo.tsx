@@ -48,7 +48,9 @@ const PostInfo = ({
 
   return (
     <div className={cn("post-info-ui", className)} {...otherProps}>
-      <ImageLazyLoader className="post-info-ui__image" src={imageUrl} />
+      {imageUrl && (
+        <ImageLazyLoader className="post-info-ui__image" src={imageUrl} />
+      )}
       <div className="post-info-ui__content">
         <Typography className="post-info-ui__tags">
           {tags?.join(",")}

@@ -17,11 +17,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Simple: Story = {
   args: {
-    kind: "вопросы",
     title: "Как перестать делать баги?",
-    content:
+    previewText:
       "Я работаю в айти гдето около 2 лет, замечаю за собой такой недостаток - очень много мелких багов при разработке, которые часто не выявляются при первичных тестах. В итоге приходится очень часто пушить хот-фиксы. Возможно это связано с самим проектом - стартап, надо быстро, ревью особого нет, серьезного тестирования тоже.",
-    readTerm: 2,
+    readMinutes: 2,
     datePublish: new Date(),
   },
 };
@@ -32,26 +31,28 @@ export const SeveralPosts = () => {
       style={{
         display: "flex",
         gap: "10px",
-        width: "50%",
+        width: "90%",
         margin: "100px auto",
       }}
     >
       <PostInfo
-        kind="вопросы"
+        imageUrl="https://seniorsoftwarevlogger.com/content/images/size/w1000/2023/03/Dima_Rozhkov_a_copic_brush_pen_illustration_of_a_web_UI_dashboa_a6adbf22-f199-4c1c-b410-362de227d4fb.png"
         title="Как перестать делать баги?"
-        content="Я работаю в айти гдето около 2 лет, замечаю за собой такой недостаток - очень много мелких багов при разработке, которые часто не выявляются при первичных тестах."
+        tags={["humor", "lifestyle"]}
+        previewText="Я работаю в айти гдето около 2 лет, замечаю за собой такой недостаток - очень много мелких багов при разработке, которые часто не выявляются при первичных тестах."
         datePublish={new Date()}
       />
       <PostInfo
-        kind="вопросы"
+        imageUrl="https://seniorsoftwarevlogger.com/content/images/size/w1000/2023/03/Dima_Rozhkov_a_copic_brush_pen_illustration_of_a_web_UI_dashboa_a6adbf22-f199-4c1c-b410-362de227d4fb.png"
         title="Как перестать делать баги?"
-        content="Я работаю в айти гдето около 2 лет, замечаю за собой такой недостаток - очень много мелких багов при разработке, которые часто не выявляются при первичных тестах."
-        datePublish={new Date()}
+        tags={["code", "work"]}
+        previewText="Я работаю в айти гдето около 2 лет, замечаю за собой такой недостаток - очень много мелких багов при разработке, которые часто не выявляются при первичных тестах."
+        datePublish={"2023-11-15T14:02:32.962Z"}
       />
       <PostInfo
-        kind="вопросы"
+        imageUrl="https://seniorsoftwarevlogger.com/content/images/size/w1000/2023/03/Dima_Rozhkov_a_copic_brush_pen_illustration_of_a_web_UI_dashboa_a6adbf22-f199-4c1c-b410-362de227d4fb.png"
         title="Как перестать делать баги?"
-        content="Я работаю в айти гдето около 2 лет, замечаю за собой такой недостаток - очень много мелких багов при разработке, которые часто не выявляются при первичных тестах."
+        previewText="Я работаю в айти гдето около 2 лет, замечаю за собой такой недостаток - очень много мелких багов при разработке, которые часто не выявляются при первичных тестах."
         datePublish={new Date()}
         readMinutes={60}
       />

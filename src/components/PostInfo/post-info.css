@@ -1,10 +1,27 @@
 .post-info-ui {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  padding: 0 10px;
 }
 
 .post-info-ui__desc {
   display: flex;
   gap: 10px;
+}
+
+.post-info-ui__image {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.post-info-ui__content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-block-start: 20px;
+  position: relative;
+}
+
+.post-info-ui__tags {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: -15px;
 }

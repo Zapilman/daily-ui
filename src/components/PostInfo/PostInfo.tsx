@@ -1,25 +1,28 @@
-import React, { memo, useMemo } from "react";
+import React, { HTMLAttributes, memo, useMemo } from "react";
 import cn from "classnames";
 import "./post-info.css";
 import { Typography } from "../Typography";
 import dayjs from "dayjs";
+import { ImageLazyLoader } from "../ImageLazyLoader";
 
-type PostInfo = {
-  className?: string;
-  kind?: string;
+type PostInfo = HTMLAttributes<HTMLDivElement> & {
   title: string;
-  content: string;
+  previewText: string;
   datePublish: Date | string;
+  imageUrl?: string;
+  tags?: string[];
   readMinutes?: number;
 };
 
 const PostInfo = ({
   className,
-  kind,
+  tags,
   title,
-  content,
+  previewText,
   datePublish,
   readMinutes,
+  imageUrl,
+  ...otherProps
 }: PostInfo) => {
   const parsedDatePublish = useMemo(() => {
     let validDate = new Date();
@@ -44,17 +47,23 @@ const PostInfo = ({
   }, [readMinutes]);
 
   return (
-    <div className={cn("post-info-ui", className)}>
-      <Typography>{kind}</Typography>
-      {title && (
-        <Typography size={24} weight={700}>
-          {title}
+    <div className={cn("post-info-ui", className)} {...otherProps}>
+      <ImageLazyLoader className="post-info-ui__image" src={imageUrl} />
+      <div className="post-info-ui__content">
+        <Typography className="post-info-ui__tags">
+          {tags?.join(",")}
         </Typography>
-      )}
-      {content && <Typography size={16}>{content}</Typography>}
-      <div className="post-info-ui__desc">
-        {kind && <Typography>{parsedDatePublish}</Typography>}
-        {readMinutes && <Typography>{parsedReadTerm}</Typography>}
+
+        {title && (
+          <Typography size={24} weight={700}>
+            {title}
+          </Typography>
+        )}
+        {previewText && <Typography size={16}>{previewText}</Typography>}
+        <div className="post-info-ui__desc">
+          {parsedDatePublish && <Typography>{parsedDatePublish}</Typography>}
+          {readMinutes && <Typography>{parsedReadTerm}</Typography>}
+        </div>
       </div>
     </div>
   );

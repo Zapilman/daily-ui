@@ -1,7 +1,6 @@
 .image-lazy-loader-ui {
   position: relative;
-  display: block;
-  height: max-content;
+  display: inline-block;
 }
 
 .image-lazy-loader-ui img {

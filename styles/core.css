@@ -1,3 +1,6 @@
+@import url("./theme/themes/dark.css");
+@import url("./theme/themes/light.css");
+
 @font-face {
   font-display: swap;
   font-family: "Roboto2";

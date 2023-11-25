@@ -1,4 +1,5 @@
 [data-theme="dark"] {
-  --main-background: green;
-  --theme-colors-300: white;
+  --main-background: #0c111d;
+
+  color: white;
 }

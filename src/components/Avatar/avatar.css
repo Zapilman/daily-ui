@@ -1,0 +1,28 @@
+.ui-avatar {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.ui-avatar__image {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  overflow: hidden;
+  border: 2px solid gray;
+}
+
+.ui-avatar__image_s {
+  width: 30px;
+  height: 30px;
+}
+
+.ui-avatar__image_m {
+  width: 50px;
+  height: 50px;
+}
+
+.ui-avatar__image_l {
+  width: 60px;
+  height: 60px;
+}

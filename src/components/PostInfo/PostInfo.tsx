@@ -1,9 +1,10 @@
-import React, { HTMLAttributes, memo, useMemo } from "react";
-import cn from "classnames";
-import "./post-info.css";
-import { Typography } from "../Typography";
-import dayjs from "dayjs";
-import { ImageLazyLoader } from "../ImageLazyLoader";
+import React, { HTMLAttributes, memo, useMemo } from 'react';
+import cn from 'classnames';
+import './post-info.css';
+import { Typography } from '../Typography';
+import dayjs from 'dayjs';
+import { ImageLazyLoader } from '../ImageLazyLoader';
+import Image from 'next/image';
 
 type PostInfo = HTMLAttributes<HTMLDivElement> & {
   title: string;
@@ -26,20 +27,20 @@ const PostInfo = ({
 }: PostInfo) => {
   const parsedDatePublish = useMemo(() => {
     let validDate = new Date();
-    if (typeof datePublish === "string") {
+    if (typeof datePublish === 'string') {
       validDate = new Date(datePublish);
     } else if (dayjs(datePublish).isValid()) {
       validDate = datePublish;
     }
-    return dayjs(validDate).format("DD MMM YYYY");
+    return dayjs(validDate).format('DD MMM YYYY');
   }, [datePublish]);
 
   const parsedReadTerm = useMemo(() => {
     if (readMinutes) {
-      let sufix = "min";
+      let sufix = 'min';
       let count = readMinutes;
       if (readMinutes >= 60) {
-        sufix = "hours";
+        sufix = 'hours';
         count = Math.round(readMinutes / 60);
       }
       return `${count} ${sufix} read`;
@@ -47,13 +48,26 @@ const PostInfo = ({
   }, [readMinutes]);
 
   return (
-    <div className={cn("post-info-ui", className)} {...otherProps}>
+    <div className={cn('post-info-ui', className)} {...otherProps}>
       {imageUrl && (
-        <ImageLazyLoader className="post-info-ui__image" src={imageUrl} />
+        // <ImageLazyLoader className="post-info-ui__image" src={imageUrl} />
+        <Image
+          alt="asdsa"
+          src={imageUrl}
+          sizes="100vw"
+          // Make the image display full width
+          width={10}
+          height={10}
+          style={{
+            width: '100%',
+            height: 'auto',
+          }}
+          className="post-info-ui__image"
+        />
       )}
       <div className="post-info-ui__content">
         <Typography className="post-info-ui__tags">
-          {tags?.join(",")}
+          {tags?.join(',')}
         </Typography>
 
         {title && (
